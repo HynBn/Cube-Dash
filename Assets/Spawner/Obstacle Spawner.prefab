@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5209586461751959599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8978617428625214756}
+  - component: {fileID: 3380295551093890190}
+  m_Layer: 8
+  m_Name: Obstacle Spawner
+  m_TagString: Obstacle
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8978617428625214756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5209586461751959599}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.5, y: -4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3380295551093890190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5209586461751959599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef607f7a421a79440a9821ad3b5205d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefabs:
+  - {fileID: 7818676258179347161, guid: be692362dc724924699e64a972358f59, type: 3}
+  - {fileID: 2454979750257721799, guid: a8a9e6ada7522ee4ea38f198d752695d, type: 3}
+  - {fileID: 5047571673766104529, guid: e16603356df09374e9d410a70c3624f2, type: 3}
+  - {fileID: 3473723297912185948, guid: 6c7cc6da2dbb9b14e84d1e9c37ea4bd7, type: 3}
+  - {fileID: 4649030790494927178, guid: b8a28cc08883179458823f060bbe6392, type: 3}
+  - {fileID: 2641289489815303784, guid: 314f1e2e02759f14c848b98e3bc2731b, type: 3}
+  - {fileID: 1318683254390557927, guid: 2fa263be1b8989343a271a91a09da630, type: 3}
+  - {fileID: 8595011161802008889, guid: 7a49b5bbef59a3f40b639abb329b8da7, type: 3}
+  obstacleParent: {fileID: 0}
+  obstacleSpawnTime: 2.5
+  obstacleSpeed: 4
+  obstacleSpawnTimeFactor: 0.1
+  obstacleSpeedFactor: 0.2

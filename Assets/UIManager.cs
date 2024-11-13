@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject endMenuUI;
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private TextMeshProUGUI gameOverScoreUI;
+    [SerializeField] private GameObject settingsMenuUI;
 
     [SerializeField] private AudioSource buttonClickSound;
 
@@ -48,7 +49,7 @@ public class UIManager : MonoBehaviour
         gm.ResumeGame();
     }
 
-    public void MenuButtonHandler()
+    public void ButtonSoundHandler()
     {
         PlayButtonClickSound();
     }

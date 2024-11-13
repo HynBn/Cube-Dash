@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private TextMeshProUGUI gameOverScoreUI;
 
+    [SerializeField] private AudioSource buttonClickSound;
+
+
     GameManager gm;
 
     void Start()
@@ -29,12 +32,33 @@ public class UIManager : MonoBehaviour
 
     public void PlayButtonHandler()
     {
+        PlayButtonClickSound();
         gm.StartGame();
     }
 
     public void QuitButtonHandler()
     {
+        PlayButtonClickSound();
         Application.Quit();
+    }
+
+    public void ResumeButtonHandler()
+    {
+        PlayButtonClickSound();
+        gm.ResumeGame();
+    }
+
+    public void MenuButtonHandler()
+    {
+        PlayButtonClickSound();
+    }
+
+    private void PlayButtonClickSound()
+    {
+        if (buttonClickSound != null)
+        {
+            buttonClickSound.Play();
+        }
     }
 
     public void ActivateGameOverUI()
@@ -52,11 +76,6 @@ public class UIManager : MonoBehaviour
     public void DeactivatePauseMenu()
     {
         pauseMenuUI.SetActive(false);
-    }
-
-    public void ResumeButtonHandler()
-    {
-        gm.ResumeGame();
     }
 
     private void OnGUI()

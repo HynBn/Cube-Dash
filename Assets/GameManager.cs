@@ -22,9 +22,12 @@ public class GameManager : MonoBehaviour
     public UnityEvent onPause = new UnityEvent();
     public UnityEvent onResume = new UnityEvent();
 
+    [SerializeField] private AudioSource inGameMusic;
+    [SerializeField] private AudioSource menuMusic;
+
     void Start()
     {
-        
+        menuMusic.Play();
     }
 
     void Update()
@@ -42,6 +45,10 @@ public class GameManager : MonoBehaviour
         isPaused = false;
         currentScore = 0;
         Time.timeScale = 1;
+
+        menuMusic.Pause();
+        inGameMusic.time = 0;
+        inGameMusic.Play();
     }
 
     public void GameOver()
@@ -50,6 +57,9 @@ public class GameManager : MonoBehaviour
         currentScore = 0;
         isPlaying = false;
         Time.timeScale = 1;
+
+        menuMusic.Play();
+        inGameMusic.Stop();
     }
 
     public void TogglePause()
@@ -69,6 +79,9 @@ public class GameManager : MonoBehaviour
         isPaused = true;
         onPause.Invoke();
         Time.timeScale = 0;
+
+        menuMusic.Play();
+        inGameMusic.Pause();
     }
 
     public void ResumeGame()
@@ -76,6 +89,9 @@ public class GameManager : MonoBehaviour
         isPaused = false;
         onResume.Invoke();
         Time.timeScale = 1;
+
+        menuMusic.Pause();
+        inGameMusic.Play();
     }
 
     public void AddScore (int amount)

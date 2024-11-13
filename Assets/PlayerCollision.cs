@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
 
+    [SerializeField] private AudioSource gameOverSound;
+    [SerializeField] private AudioSource coinSound;
 
     void Start()
     {
@@ -25,6 +27,8 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collision.transform.tag == "Obstacle")
         {
+            gameOverSound.Play(); //funktioniert nicht
+
             gameObject.SetActive(false);
             GameManager.Instance.GameOver();
         }
@@ -36,6 +40,8 @@ public class PlayerCollision : MonoBehaviour
         {
             GameManager.Instance.AddScore(1);
             Destroy(collision.gameObject);
+
+            coinSound.Play();
         }
     }
 }

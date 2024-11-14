@@ -12,8 +12,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundDistance = 0.25f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform GFX;
-
     [SerializeField] private float crouchHeight = 0.5f;
+
+    [SerializeField] private ParticleSystem _particleSystem;
 
     private bool isGrounded = false;
     private bool isJumping = false;
@@ -76,6 +77,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
+            _particleSystem.Play();
+
             isGrounded = true;
         }
     }
@@ -84,6 +87,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
+            _particleSystem.Stop();
+
             isGrounded = false;
         }
     }

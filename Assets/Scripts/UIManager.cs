@@ -7,10 +7,11 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreUI;
     [SerializeField] private GameObject startMenuUI;
+    [SerializeField] private GameObject settingsMenuUI;
     [SerializeField] private GameObject endMenuUI;
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private TextMeshProUGUI gameOverScoreUI;
-    [SerializeField] private GameObject settingsMenuUI;
+    [SerializeField] private TextMeshProUGUI highscoreUI;
 
     GameManager gm;
     AudioManager am;
@@ -67,6 +68,8 @@ public class UIManager : MonoBehaviour
         endMenuUI.SetActive(true);
 
         gameOverScoreUI.text = "Your Score: " + gm.currentScore;
+
+        highscoreUI.text = "The Highscore: " + gm.highScore;
     }
 
     public void ActivatePauseMenu()

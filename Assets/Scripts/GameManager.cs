@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     }
 
     public int currentScore = 0;
+    public int highScore = 0;
     public bool isPlaying = false;
     public bool isPaused = false;
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         am.PlayMenuMusic();
+
     }
 
     void Update()
@@ -52,6 +54,11 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        if(highScore < currentScore)
+        {
+            highScore = currentScore;
+        }
+
         onGameOver.Invoke();
         currentScore = 0;
         isPlaying = false;
@@ -76,6 +83,7 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         isPaused = true;
+        isPlaying = false;
         onPause.Invoke();
         Time.timeScale = 0;
 
@@ -86,6 +94,7 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         isPaused = false;
+        isPlaying = true;
         onResume.Invoke();
         Time.timeScale = 1;
 

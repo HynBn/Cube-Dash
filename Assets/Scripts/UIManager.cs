@@ -12,10 +12,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gameOverScoreUI;
     [SerializeField] private GameObject settingsMenuUI;
 
-    [SerializeField] private AudioSource buttonClickSound;
-
-
     GameManager gm;
+    AudioManager am;
+
+    private void Awake()
+    {
+        am = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     void Start()
     {
@@ -50,16 +53,13 @@ public class UIManager : MonoBehaviour
     }
 
     public void ButtonSoundHandler()
-    {
+    { 
         PlayButtonClickSound();
     }
 
     private void PlayButtonClickSound()
     {
-        if (buttonClickSound != null)
-        {
-            buttonClickSound.Play();
-        }
+        am.PlaySFX(am.buttonPressSFX);
     }
 
     public void ActivateGameOverUI()

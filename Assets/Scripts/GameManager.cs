@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    #region Singelton
     public static GameManager Instance;
     private void Awake()
     {
         if (Instance == null) Instance = this;
+
+        am = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
-    #endregion
 
     public int currentScore = 0;
     public bool isPlaying = false;
@@ -22,12 +23,11 @@ public class GameManager : MonoBehaviour
     public UnityEvent onPause = new UnityEvent();
     public UnityEvent onResume = new UnityEvent();
 
-    [SerializeField] private AudioSource inGameMusic;
-    [SerializeField] private AudioSource menuMusic;
+    AudioManager am;
 
     void Start()
     {
-        menuMusic.Play();
+        am.PlayMenuMusic();
     }
 
     void Update()
@@ -46,9 +46,8 @@ public class GameManager : MonoBehaviour
         currentScore = 0;
         Time.timeScale = 1;
 
-        menuMusic.Pause();
-        inGameMusic.time = 0;
-        inGameMusic.Play();
+        am.PauseMusic(am.menuMusic);
+        am.PlayinGameMusic(true);
     }
 
     public void GameOver()
@@ -58,8 +57,8 @@ public class GameManager : MonoBehaviour
         isPlaying = false;
         Time.timeScale = 1;
 
-        menuMusic.Play();
-        inGameMusic.Stop();
+        am.PlayMenuMusic();
+        am.StopMusic(am.inGameMusic);
     }
 
     public void TogglePause()
@@ -80,8 +79,8 @@ public class GameManager : MonoBehaviour
         onPause.Invoke();
         Time.timeScale = 0;
 
-        menuMusic.Play();
-        inGameMusic.Pause();
+        am.PlayMenuMusic();
+        am.PauseMusic(am.inGameMusic);
     }
 
     public void ResumeGame()
@@ -90,8 +89,8 @@ public class GameManager : MonoBehaviour
         onResume.Invoke();
         Time.timeScale = 1;
 
-        menuMusic.Pause();
-        inGameMusic.Play();
+        am.PauseMusic(am.menuMusic);
+        am.PlayinGameMusic(false);
     }
 
     public void AddScore (int amount)

@@ -13,27 +13,22 @@ public class PlayerCollision : MonoBehaviour
 
     void Start()
     {
-        GameManager.Instance.onPlay.AddListener(ActivePlayer);
-    }
-
-    void Update()
-    {
-        
+        GameManager.Instance.onPlay.AddListener(ActivePlayer);  //Activate the Player when Playing
     }
 
     private void ActivePlayer()
     {
-        gameObject.SetActive(true);
+        gameObject.SetActive(true); //Activate the Player
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "Obstacle")
         {
-            gameObject.SetActive(false);
-            GameManager.Instance.GameOver();
+            gameObject.SetActive(false);    //Deactivate the Player when hitting an obstacle
+            GameManager.Instance.GameOver();    //Set the mode to GameOver
 
-            am.PlaySFX(am.gameOverSFX);
+            am.PlaySFX(am.gameOverSFX); //Play Soundeffect
         }
     }
 
@@ -41,10 +36,10 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collision.CompareTag("Coin"))
         {
-            GameManager.Instance.AddScore(1);
-            Destroy(collision.gameObject);
+            GameManager.Instance.AddScore(1);   //Add a point when hitting a coin
+            Destroy(collision.gameObject);  //Destroy the coin
 
-            am.PlaySFX(am.coinSFX);
+            am.PlaySFX(am.coinSFX); //Play Soundeffect
         }
     }
 }

@@ -281,10 +281,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1628899563}
   m_HandleRect: {fileID: 2089958842}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -5825,7 +5825,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -9012,17 +9012,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 501ea226beb13db4b86b35d0c99dadff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  playerBody: {fileID: 0}
   jumpForce: 10
   jumpTime: 0.3
-  feetPos: {fileID: 50860577613260036}
-  groundDistance: 0.25
+  crouchHeight: 0.5
+  GFX: {fileID: 4051496918987408516}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  GFX: {fileID: 4051496918987408516}
-  crouchHeight: 0.5
-  _particleSystem: {fileID: 270198793}
+  groundDistance: 0.25
+  feetPos: {fileID: 50860577613260036}
+  VFX: {fileID: 270198793}
 --- !u!61 &1871924372259412998
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9125,26 +9125,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2110314472445465430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4415917786657854642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7f37ff90e11fe54eb1a11b5b33ecb45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platformPrefabs:
-  - {fileID: 8786379499313074130, guid: 03708a36d28d94343901b3aaa8b348d7, type: 3}
-  - {fileID: 7152788846366652363, guid: 13532e86b589dd5408ad0f81cf7ffc00, type: 3}
-  platformParent: {fileID: 7603876512323052391}
-  platformSpawnTime: 10
-  platformSpeed: 3
-  platformSpawnTimeFactor: 0.1
-  platformSpeedFactor: 0.2
 --- !u!1 &2126779006573070147
 GameObject:
   m_ObjectHideFlags: 0
@@ -9970,7 +9950,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 935069590863455465}
-  - component: {fileID: 6812051542832657731}
+  - component: {fileID: 6812051542832657732}
   m_Layer: 8
   m_Name: Obstacle Spawner
   m_TagString: Obstacle
@@ -10150,7 +10130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3745928641918207010}
-  - component: {fileID: 2110314472445465430}
+  - component: {fileID: 4415917786657854643}
   m_Layer: 6
   m_Name: Platform Spawner
   m_TagString: Ground
@@ -10158,6 +10138,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4415917786657854643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4415917786657854642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d668a987976ca24496bf037b0531ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 7152788846366652363, guid: 13532e86b589dd5408ad0f81cf7ffc00, type: 3}
+  - {fileID: 8786379499313074130, guid: 03708a36d28d94343901b3aaa8b348d7, type: 3}
+  objectParent: {fileID: 7603876512323052391}
+  spawnTime: 10
+  speed: 3
+  spawnTimeFactor: 0.1
+  speedFactor: 0.2
 --- !u!224 &4425417001126447727
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11381,7 +11381,7 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 803ba9ab3f94b9a49bd876e2c4c736da, type: 2}
---- !u!114 &6812051542832657731
+--- !u!114 &6812051542832657732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11390,23 +11390,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 4047706255254424034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef607f7a421a79440a9821ad3b5205d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d668a987976ca24496bf037b0531ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefabs:
-  - {fileID: 7818676258179347161, guid: be692362dc724924699e64a972358f59, type: 3}
-  - {fileID: 2454979750257721799, guid: a8a9e6ada7522ee4ea38f198d752695d, type: 3}
-  - {fileID: 5047571673766104529, guid: e16603356df09374e9d410a70c3624f2, type: 3}
-  - {fileID: 3473723297912185948, guid: 6c7cc6da2dbb9b14e84d1e9c37ea4bd7, type: 3}
-  - {fileID: 4649030790494927178, guid: b8a28cc08883179458823f060bbe6392, type: 3}
+  prefabs:
   - {fileID: 2641289489815303784, guid: 314f1e2e02759f14c848b98e3bc2731b, type: 3}
   - {fileID: 1318683254390557927, guid: 2fa263be1b8989343a271a91a09da630, type: 3}
   - {fileID: 8595011161802008889, guid: 7a49b5bbef59a3f40b639abb329b8da7, type: 3}
-  obstacleParent: {fileID: 7603876512323052391}
-  obstacleSpawnTime: 2.5
-  obstacleSpeed: 4
-  obstacleSpawnTimeFactor: 0.1
-  obstacleSpeedFactor: 0.2
+  - {fileID: 5047571673766104529, guid: e16603356df09374e9d410a70c3624f2, type: 3}
+  - {fileID: 4649030790494927178, guid: b8a28cc08883179458823f060bbe6392, type: 3}
+  - {fileID: 3473723297912185948, guid: 6c7cc6da2dbb9b14e84d1e9c37ea4bd7, type: 3}
+  - {fileID: 7818676258179347161, guid: be692362dc724924699e64a972358f59, type: 3}
+  - {fileID: 2454979750257721799, guid: a8a9e6ada7522ee4ea38f198d752695d, type: 3}
+  objectParent: {fileID: 7603876512323052391}
+  spawnTime: 2.5
+  speed: 4
+  spawnTimeFactor: 0.1
+  speedFactor: 0.2
 --- !u!114 &6850785433928876846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11773,25 +11773,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7140530575800484318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8153742193987033156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 598877ab83522f347aadea163928b94c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinPrefabs:
-  - {fileID: 4717135028345439854, guid: 41499941142dfc6489ea19f74ffbce68, type: 3}
-  - {fileID: 7530540531362118546, guid: 537e251afe112c8488b2abf78625d60b, type: 3}
-  - {fileID: 4585145513876349818, guid: a9821ff00224701448a81ec30b16abb4, type: 3}
-  coinParent: {fileID: 7603876512323052391}
-  coinSpawnTime: 5
-  coinSpeed: 10
 --- !u!1 &7341484591800929342
 GameObject:
   m_ObjectHideFlags: 0
@@ -12110,7 +12091,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6892793324284237711}
-  - component: {fileID: 7140530575800484318}
+  - component: {fileID: 8153742193987033157}
   m_Layer: 9
   m_Name: Coin Spawner
   m_TagString: Coin
@@ -12118,6 +12099,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8153742193987033157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8153742193987033156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d668a987976ca24496bf037b0531ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 4585145513876349818, guid: a9821ff00224701448a81ec30b16abb4, type: 3}
+  - {fileID: 4717135028345439854, guid: 41499941142dfc6489ea19f74ffbce68, type: 3}
+  - {fileID: 7530540531362118546, guid: 537e251afe112c8488b2abf78625d60b, type: 3}
+  objectParent: {fileID: 7603876512323052391}
+  spawnTime: 5
+  speed: 7
+  spawnTimeFactor: 0.1
+  speedFactor: 0.2
 --- !u!114 &8178879207900543854
 MonoBehaviour:
   m_ObjectHideFlags: 0

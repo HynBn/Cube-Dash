@@ -30,9 +30,9 @@ public class AudioManager : MonoBehaviour
 
     public void PlayinGameMusic(bool fromStart)
     {
-        inGameMusicSource.clip = inGameMusic;
+        inGameMusicSource.clip = inGameMusic;   //get the inGameMusic to play it
 
-        if (fromStart)
+        if (fromStart)  //Revert to start of the Soundtrack, if needed (Start of the Game)
         {
             inGameMusicSource.time = 0;
         }
@@ -42,6 +42,7 @@ public class AudioManager : MonoBehaviour
 
     public void StopMusic(AudioClip clip)
     {
+        //stop the soundtrack depending on which soundtrack
         if (clip == menuMusic && menuMusicSource.isPlaying)
         {
             menuMusicSource.Stop();
@@ -55,6 +56,7 @@ public class AudioManager : MonoBehaviour
 
     public void PauseMusic(AudioClip clip)
     {
+        //pause the soundtrack depending on which soundtrack
         if (clip == menuMusic && menuMusicSource.isPlaying)
         {
             menuMusicSource.Pause();

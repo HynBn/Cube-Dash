@@ -5,43 +5,50 @@ using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D rb;
+    [Header("Rigidbody of Player")]
+    [SerializeField] private Rigidbody2D playerBody;
+
+    [Header("Jump")]
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float jumpTime = 0.3f;
-    [SerializeField] private Transform feetPos;
-    [SerializeField] private float groundDistance = 0.25f;
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private Transform GFX;
-    [SerializeField] private float crouchHeight = 0.5f;
-
-    [SerializeField] private ParticleSystem _particleSystem;
-
-    private bool isGrounded = false;
     private bool isJumping = false;
     private float jumpTimer = 0f;
 
+    [Header("Crouch")]
+    [SerializeField] private float crouchHeight = 0.5f;
+    [SerializeField] private Transform GFX;
+
+    [Header("Ground")]
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float groundDistance = 0.25f;
+    [SerializeField] private Transform feetPos;
+    private bool isGrounded = false;
+
+    [Header("ParticleSystem")]
+    [SerializeField] private ParticleSystem VFX;
+
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        playerBody = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(feetPos.position, groundDistance, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(feetPos.position, groundDistance, groundLayer);    //check if ground layer is touched via feetPos 
 
         //JUMP
-        if (isGrounded && Input.GetButtonDown("Jump"))
+        if (isGrounded && Input.GetButtonDown("Jump"))  //Jump only when on Ground
         {
             isJumping = true;
             jumpTimer = 0f;
-            rb.velocity = Vector2.up * jumpForce;
+            playerBody.velocity = Vector2.up * jumpForce;
         }
 
         if (isJumping && Input.GetButton("Jump"))
         {
-            if (jumpTimer < jumpTime)
+            if (jumpTimer < jumpTime)   //Jump as long as the jumpTime
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                playerBody.velocity = new Vector2(playerBody.velocity.x, jumpForce);
                 jumpTimer += Time.deltaTime;
             }
             else
@@ -50,24 +57,24 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonUp("Jump"))
+        if (Input.GetButtonUp("Jump"))  //let go of Space button and the Jump is done
         {
             isJumping = false;
         }
 
         //CROUCH
-        if (isGrounded && Input.GetButton("Crouch"))
+        if (isGrounded && Input.GetButton("Crouch"))    //Chrouch only when on Ground
         {
             GFX.localScale = new Vector3(GFX.localScale.x, crouchHeight, GFX.localScale.z);
 
-            if (isJumping)
+            if (isJumping)  //don't Crouch when Jumping
             {
                 GFX.localScale = new Vector3(GFX.localScale.x, 1f, GFX.localScale.z);
             }
         }
 
         
-        if (Input.GetButtonUp("Crouch"))
+        if (Input.GetButtonUp("Crouch"))    //let go of Shift button and the Crouch is done
         {
             GFX.localScale = new Vector3(GFX.localScale.x, 1f, GFX.localScale.z);
         }
@@ -77,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            _particleSystem.Play();
+            VFX.Play(); //activate the ParticleSystem when on Ground
 
             isGrounded = true;
         }
@@ -87,18 +94,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            _particleSystem.Stop();
+            VFX.Stop(); //Stop the ParticleSystem in air
 
             isGrounded = false;
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (feetPos != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(feetPos.position, groundDistance);
         }
     }
 }

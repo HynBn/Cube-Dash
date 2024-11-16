@@ -6,12 +6,14 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
+    //Singleton
     public static GameManager Instance;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
 
-        am = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        am = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();    //Get the Audiomanager
     }
 
     public int currentScore = 0;
@@ -28,44 +30,47 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        am.PlayMenuMusic();
-
+        am.PlayMenuMusic(); //Play the MenuMusic when starting the Game
     }
 
     void Update()
     {
         if (isPlaying && Input.GetKeyDown(KeyCode.Escape))
         {
-            TogglePause();
+            TogglePause();  //Activate Pause Menu only while Playing and when the ESC button is pressed
         }
     }
 
     public void StartGame()
     {
-        onPlay.Invoke();
-        isPlaying = true;
-        isPaused = false;
-        currentScore = 0;
-        Time.timeScale = 1;
+        onPlay.Invoke();    //activate onPlay Event
 
-        am.PauseMusic(am.menuMusic);
-        am.PlayinGameMusic(true);
+        isPlaying = true;   
+        isPaused = false;
+
+        currentScore = 0;
+        Time.timeScale = 1; //if paused, set to normal
+
+        am.PauseMusic(am.menuMusic);    //Pause the menuMusic
+        am.PlayinGameMusic(true);   //Play the gameMusic (from the start)
     }
 
     public void GameOver()
     {
-        if(highScore < currentScore)
+        if(highScore < currentScore)    //if a new highscore is obtained
         {
             highScore = currentScore;
         }
 
         onGameOver.Invoke();
-        currentScore = 0;
+
         isPlaying = false;
+
+        currentScore = 0;
         Time.timeScale = 1;
 
-        am.PlayMenuMusic();
-        am.StopMusic(am.inGameMusic);
+        am.PlayMenuMusic(); //Resume the menuMusic
+        am.StopMusic(am.inGameMusic);   //Stop the gameMusic
     }
 
     public void TogglePause()
@@ -82,10 +87,12 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
+        onPause.Invoke();
+
         isPaused = true;
         isPlaying = false;
-        onPause.Invoke();
-        Time.timeScale = 0;
+
+        Time.timeScale = 0; //Pause the game
 
         am.PlayMenuMusic();
         am.PauseMusic(am.inGameMusic);
@@ -93,13 +100,15 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        onResume.Invoke();
+
         isPaused = false;
         isPlaying = true;
-        onResume.Invoke();
-        Time.timeScale = 1;
+
+        Time.timeScale = 1; //Continue the Game
 
         am.PauseMusic(am.menuMusic);
-        am.PlayinGameMusic(false);
+        am.PlayinGameMusic(false);  //don't revert to start
     }
 
     public void AddScore (int amount)

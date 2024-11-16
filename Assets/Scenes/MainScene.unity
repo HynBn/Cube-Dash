@@ -310,7 +310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 260229145}
   m_Layer: 0
-  m_Name: ==MANAGERS==
+  m_Name: ====MANAGERS====
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5190,7 +5190,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 3607249729606325707, guid: c8073a08ec84c054db142fcbd6c14f7a, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6236,7 +6236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 899472169}
   m_Layer: 0
-  m_Name: ==PLATFORM==
+  m_Name: ====PLATFORM====
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6251,7 +6251,7 @@ Transform:
   m_GameObject: {fileID: 899472168}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.92951983, y: -0.6542351, z: 0.010601261}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6358,7 +6358,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 8479713656803367915, guid: c8073a08ec84c054db142fcbd6c14f7a, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6940,7 +6940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1342849715}
   m_Layer: 0
-  m_Name: ==PLAYER==
+  m_Name: ====PLAYER====
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6955,7 +6955,7 @@ Transform:
   m_GameObject: {fileID: 1342849714}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.92951983, y: -0.6542351, z: 0.010601261}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7105,7 +7105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1536121419}
   m_Layer: 0
-  m_Name: ==SPAWNER==
+  m_Name: ====SPAWNER====
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7120,7 +7120,7 @@ Transform:
   m_GameObject: {fileID: 1536121418}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.92951983, y: -0.6542351, z: 0.010601261}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7450,7 +7450,7 @@ RectTransform:
   m_Father: {fileID: 681720864}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7525,7 +7525,7 @@ RectTransform:
   m_Father: {fileID: 981866238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.49995, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7596,7 +7596,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 3607249729606325707, guid: c8073a08ec84c054db142fcbd6c14f7a, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7705,7 +7705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1763474899}
   m_Layer: 0
-  m_Name: ==UI==
+  m_Name: ====UI====
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7720,7 +7720,7 @@ Transform:
   m_GameObject: {fileID: 1763474898}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 427.54745, y: 186.92676, z: -0.9180071}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7758,8 +7758,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 726698408}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.49995, y: 0}
-  m_AnchorMax: {x: 0.49995, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7967,8 +7967,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 962522377}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8747,11 +8747,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d459a0a815b77be47957af9e9ba2c692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreUI: {fileID: 9007510023065563643}
   startMenuUI: {fileID: 145135592942012198}
   settingsMenuUI: {fileID: 721488712}
   endMenuUI: {fileID: 2923768754900351473}
   pauseMenuUI: {fileID: 110926230067415895}
+  scoreUI: {fileID: 9007510023065563643}
   gameOverScoreUI: {fileID: 7078780633728022118}
   highscoreUI: {fileID: 2029544616}
 --- !u!114 &1245864752885710886
@@ -10152,7 +10152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 7152788846366652363, guid: 13532e86b589dd5408ad0f81cf7ffc00, type: 3}
-  - {fileID: 8786379499313074130, guid: 03708a36d28d94343901b3aaa8b348d7, type: 3}
+  - {fileID: 3514661818168808464, guid: 67cad7aadc46111488701e7e34778582, type: 3}
   objectParent: {fileID: 7603876512323052391}
   spawnTime: 10
   speed: 3
@@ -11402,6 +11402,7 @@ MonoBehaviour:
   - {fileID: 3473723297912185948, guid: 6c7cc6da2dbb9b14e84d1e9c37ea4bd7, type: 3}
   - {fileID: 7818676258179347161, guid: be692362dc724924699e64a972358f59, type: 3}
   - {fileID: 2454979750257721799, guid: a8a9e6ada7522ee4ea38f198d752695d, type: 3}
+  - {fileID: 1062138675645339113, guid: fd2d3515017a99a419da50ee53cc9a3f, type: 3}
   objectParent: {fileID: 7603876512323052391}
   spawnTime: 2.5
   speed: 4
@@ -12112,9 +12113,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 4585145513876349818, guid: a9821ff00224701448a81ec30b16abb4, type: 3}
+  - {fileID: 4717135028345439854, guid: 41499941142dfc6489ea19f74ffbce68, type: 3}
   - {fileID: 4717135028345439854, guid: 41499941142dfc6489ea19f74ffbce68, type: 3}
   - {fileID: 7530540531362118546, guid: 537e251afe112c8488b2abf78625d60b, type: 3}
+  - {fileID: 7530540531362118546, guid: 537e251afe112c8488b2abf78625d60b, type: 3}
+  - {fileID: 4585145513876349818, guid: a9821ff00224701448a81ec30b16abb4, type: 3}
   objectParent: {fileID: 7603876512323052391}
   spawnTime: 5
   speed: 7

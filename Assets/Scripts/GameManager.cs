@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
 
         am.PauseMusic(am.menuMusic);    //Pause the menuMusic
         am.PlayinGameMusic(true);   //Play the gameMusic (from the start)
+
+        Cursor.visible = false;
     }
 
     public void GameOver()
@@ -71,6 +73,8 @@ public class GameManager : MonoBehaviour
 
         am.PlayMenuMusic(); //Resume the menuMusic
         am.StopMusic(am.inGameMusic);   //Stop the gameMusic
+
+        Cursor.visible = true;
     }
 
     public void TogglePause()
@@ -96,6 +100,8 @@ public class GameManager : MonoBehaviour
 
         am.PlayMenuMusic();
         am.PauseMusic(am.inGameMusic);
+        
+        Cursor.visible = true;
     }
 
     public void ResumeGame()
@@ -109,6 +115,8 @@ public class GameManager : MonoBehaviour
 
         am.PauseMusic(am.menuMusic);
         am.PlayinGameMusic(false);  //don't revert to start
+
+        Cursor.visible = false;
     }
 
     public void AddScore (int amount)

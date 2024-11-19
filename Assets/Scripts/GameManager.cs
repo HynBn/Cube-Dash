@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (isPlaying && Input.GetKeyDown(KeyCode.Escape))
+        if (isPlaying && Input.GetKeyDown(KeyCode.Escape) || isPlaying && Input.GetKeyDown(KeyCode.P))
         {
             TogglePause();  //Activate Pause Menu only while Playing and when the ESC button is pressed
         }

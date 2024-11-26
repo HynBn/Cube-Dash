@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public int currentScore = 0;
     public int highScore = 0;
-    public bool isPlaying = false;
+    public bool isPlaying = false; //enum Anwenden (Using enum for Statemachine)
     public bool isPaused = false;
 
     public UnityEvent onPlay = new UnityEvent();
